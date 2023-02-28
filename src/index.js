@@ -3,12 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+import globalReducer from 'state';
+import { ProSidebarProvider } from 'react-pro-sidebar';
+
+const store = configureStore({
+  reducer: {
+    global: globalReducer
+  }
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Provider store={store}>
+    <ProSidebarProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </ProSidebarProvider>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
