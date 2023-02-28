@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography, useTheme } from '@mui/material'
+import { Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography, useTheme } from '@mui/material'
 
-import { Settings, ChevronLeft, ChevronRight, Home, ShoppingCart, Groups2, Receipt, Public, PointOfSale, Today, CalendarMonth, AdminPanelSettings, TrendingUp, PieChart } from '@mui/icons-material';
+import { ChevronLeft, Home, ShoppingCart, Groups2, Receipt, Public, PointOfSale, Today, CalendarMonth, AdminPanelSettings, TrendingUp, PieChart } from '@mui/icons-material';
 import Flexbetween from 'components/Flexbetween';
 
 const Item = ({ title, icon, to, active, setActive }) => {
@@ -54,7 +54,7 @@ const Sidebar = ({ isNonMobile, drawerWidth, isSidebarOpen, setIsSidebarOpen }) 
 
   useEffect(() => {
     setActive(pathname.slice(1));
-  }, []);
+  }, [pathname]);
 
   return (
     <Box>
